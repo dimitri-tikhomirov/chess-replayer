@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Dimitri Tikhomirov">
+<meta name="description" content="A minimalistic chess replayer for PGN files">
+<title>Chess replayer</title>
+
+<link rel="modulepreload" href="main.js">
+<link rel="modulepreload" href="dependencies/chess.mjs/src/Chess.js">
+<link rel="modulepreload" href="dependencies/cm-chessboard/src/Chessboard.js">
+<link rel="modulepreload" href="dependencies/cm-chessboard/src/lib/Svg.js">
+<link rel="modulepreload" href="dependencies/cm-chessboard/src/lib/Utils.js">
+<link rel="modulepreload" href="dependencies/cm-chessboard/src/model/ChessboardState.js">
+<link rel="modulepreload" href="dependencies/cm-chessboard/src/model/Extension.js">
+<link rel="modulepreload" href="dependencies/cm-chessboard/src/model/Position.js">
+<link rel="modulepreload" href="dependencies/cm-chessboard/src/view/ChessboardView.js">
+<link rel="modulepreload" href="dependencies/cm-chessboard/src/view/PositionAnimationsQueue.js">
+<link rel="modulepreload" href="dependencies/cm-chessboard/src/view/VisualMoveInput.js">
+
+<link rel="stylesheet" href="dependencies/cm-chessboard/assets/chessboard.css">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="main.js"></script>
+</head>
+
+<body>
+<div data-pgn="games/01.pgn"></div>
+</body>
+</html>

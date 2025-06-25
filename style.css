@@ -1,0 +1,172 @@
+/* Global settings
+----------------------------------------------------------------------------- */
+:root {
+  /* Color palette */
+  --neutral-100: hsl(0, 0%, 97%);
+  --neutral-200: hsl(0, 0%, 88%);
+  --neutral-300: hsl(0, 0%, 80%);
+  --neutral-400: hsl(0, 0%, 75%);
+  --neutral-600: hsl(0, 0%, 40%);
+  --neutral-700: hsl(0, 0%, 25%);
+  --neutral-800: hsl(0, 0%, 15%);
+  --neutral-900: hsl(0, 0%, 10%);
+
+  /* Component colors */
+  --background-color: var(--neutral-100);
+  --text-color: var(--neutral-800);
+
+  /* Spacing */
+  --spacing-s: 0.375rem;
+  --spacing-m: 0.625rem;
+  --spacing-l: 0.75rem;
+
+  /* Dimensions */
+  --dim-button: 3.125rem;
+
+  /* Typography */
+  --text-l: 1.25rem;
+
+  /* Borders */
+  --border-radius: 8px;
+  --border-width-small: 1px;
+
+  /* Shadow shapes */
+  --shadow-xs: 0 2px 4px;
+  --shadow-s:  0 4px 8px;
+
+  /* Shadow colors */
+  --shadow-color-subtle:  hsla(0, 0%, 0%, 0.06);
+  --shadow-color-default: hsla(0, 0%, 0%, 0.18);
+
+  /* Transforms */
+  --translate-y: 2px;
+
+  /* Transitions */
+  --transition-duration-fast: 200ms;
+  --transition-timing-default: ease;
+}
+
+.nightMode {
+  /* Pure black bg for smaller screens, which are more likely to be OLED */
+  --background-color: black;
+  --text-color: var(--neutral-200);
+
+  --shadow-color-subtle:  hsla(0, 0%, 100%, 0.04);
+  --shadow-color-default: hsla(0, 0%, 100%, 0.12);
+}
+
+/* Responsive overrides
+----------------------------------------------------------------------------- */
+/* Larger spacing for larger screens */
+@media (min-width: 36rem) {
+  :root {
+    --spacing-l: 1rem;
+    --spacing-m:  0.75rem;
+    --spacing-s: 0.5rem;
+
+    --dim-button: 3.75rem;
+
+    --text-l: 1.5rem;
+  }
+}
+
+/* Dark gray background for larger screens */
+@media (min-width: 48rem) {
+  .nightMode {
+    --background-color: var(--neutral-900);
+  }
+}
+
+/* Basic elements
+----------------------------------------------------------------------------- */
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Chess replayer component
+----------------------------------------------------------------------------- */
+.chess-replayer {
+  --button-border-color: var(--neutral-300);
+  --button-border-color-disabled: var(--neutral-200);
+  --button-text-color: var(--text-color);
+  --button-text-color-disabled: var(--neutral-400);
+}
+
+.nightMode .chess-replayer {
+  --button-border-color: var(--neutral-700);
+  --button-border-color-disabled: var(--neutral-800);
+  --button-text-color-disabled: var(--neutral-600);
+}
+
+.chess-replayer-board {
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;
+  max-width: 52rem;
+}
+
+/* Chess replayer controls
+----------------------------------------------------------------------------- */
+.chess-replayer-controls {
+  display: flex;
+  gap: var(--spacing-s);
+  justify-content: center;
+  margin-top: var(--spacing-m);
+}
+
+.chess-replayer-button {
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+  border: var(--border-width-small) solid var(--button-border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-xs) var(--shadow-color-subtle);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition:
+    /* Not animating box-shadow for better performance */
+    transform
+    var(--transition-duration-fast)
+    var(--transition-timing-default);
+  width: var(--dim-button);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .chess-replayer-button:hover:not(:disabled) {
+    box-shadow: var(--shadow-s) var(--shadow-color-default);
+  }
+}
+
+.chess-replayer-button:active:not(:disabled) {
+  transform: translateY(var(--translate-y));
+}
+
+.chess-replayer-button:disabled {
+  border-color: var(--button-border-color-disabled);
+  box-shadow: none;
+  cursor: default;
+}
+
+.chess-replayer-button > svg {
+  fill: var(--button-text-color);
+  height: var(--text-l);
+}
+
+.chess-replayer-button:disabled > svg {
+  fill: var(--button-text-color-disabled);
+}
