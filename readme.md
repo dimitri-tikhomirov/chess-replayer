@@ -1,6 +1,8 @@
 # Chess replayer
 
-A minimalistic chess replayer that lets you replay a chess game stored in a `.pgn` file. It uses [chess.mjs](https://github.com/shaack/chess.mjs) (to read PGN) and [cm-chessboard](https://github.com/shaack/cm-chessboard) (to visualize a chessboard). Both libraries are lightweight and included, so you don't need to download anything separately. See the replayer live on [Github Pages](https://dmitri-tikhomirov.github.io/chess-replayer/).
+A minimalist chess replayer that lets you replay a chess game or puzzle stored in a `.pgn` file. It uses [chess.mjs](https://github.com/shaack/chess.mjs) (to read PGN) and [cm-chessboard](https://github.com/shaack/cm-chessboard) (to visualize a chessboard). Both libraries are lightweight and included, so you don't need to download anything separately. See the replayer live on [Github Pages](https://dimitri-tikhomirov.github.io/chess-replayer/).
+
+The replayer is standalone and can be used anywhere, but I originally developed it to be used inside [Anki](https://github.com/ankitects/anki) (and [AnkiDroid](https://github.com/ankidroid/Anki-Android)). You can create a personal puzzle database with interactive chessboard to help you ingrain the patterns better.
 
 ## Features and limitations
 
@@ -11,9 +13,9 @@ A minimalistic chess replayer that lets you replay a chess game stored in a `.pg
 - **Dark mode**: Built-in night mode theme.
 - **Auto-play**: Automatic playback with pause functionality.
 - **Hide controls option**: An option to hide all controls and only show the starting position of the PGN.
-- **Custom starting position**: The game does not have to start from the beginning, it can start from any position, and the replayer will orient the board based on who moves first (white or black). Chess960 castling is not supported.
+- **Custom starting position**: The game does not have to start from the beginning, it can start from any position, and the replayer will orient the board based on who moves first (white or black). Chess960 (Fischer Random Chess) castling is not supported.
 - **JavaScript DOM creation**: Simplified HTML, all controls are generated dynamically via JavaScript.
-- **SVG icons**: Control buttons use SVG icons by [Font Awesome](https://fontawesome.com), which ensure consistent display on different devices and are loaded from a single included SVG spritesheet.
+- **SVG icons**: Control buttons use SVG icons by [Font Awesome](https://github.com/FortAwesome/Font-Awesome), which ensure consistent display on different devices and are loaded from a single included SVG spritesheet.
 
 ## Keyboard navigation
 
